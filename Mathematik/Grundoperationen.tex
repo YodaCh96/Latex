@@ -1,0 +1,207 @@
+% -------------------------------------------------------------------%
+% ANTIGRAFI 1-1
+% -------------------------------------------------------------------%
+\documentclass[11pt, a4paper, twoside, fleqn]{article}
+
+\usepackage{ucs}
+\usepackage[T1]{fontenc}
+\usepackage[utf8x]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{fullpage}
+\usepackage{amsmath, amssymb}
+\usepackage{multicol}
+\usepackage{xcolor}
+\usepackage{tikz}
+%\usepackage[showframe, margin=1in]{geometry}
+%\usepackage{lastpage}
+%\usepackage{microtype}
+%\usepackage{mathtools}
+
+\newcommand{\karos}[2]{
+  \begin{tikzpicture}
+    \draw[step=0.5cm,color=gray] (0,0) grid (#1 cm ,#2 cm);
+  \end{tikzpicture}
+}
+
+% -------------------------------------------------------------------%
+
+%\title{Grundoperationen} % <--- ALLAGI
+%\author{Ioannis Christodoulakis}
+%\date{\today}
+
+\begin{document}
+%\maketitle
+%\pagebreak
+%\newpage
+% Inhaltsverzeichnis
+%\tableofcontents
+%\newpage
+
+\section{Ressourcen gemäss KoRe}
+\textcolor{red}{xxx}
+
+\section{Einleitung und Übersicht}
+Wie das Beispiel auf der Titelseite dieses Dokumentes zeigt, werden Teilschaltungen in der Elektronik mit Hilfe der Mathematik berechnet und dimensioniert. Dafür sind, um es einmal in der Terminologie des Kompetenzen-Ressourcen-Katalogs (KoRe) auszudrücken, die folgenden Ressourcen erforderlich:
+\begin{itemize}%[label=\textcolor{blue}{\textbullet}]
+\setlength{\itemsep}{0pt}
+\item Mit allgemeinen Zahlen rechnen und die Hierarchie der Operationen beachten
+\item Addition und Subtraktion mit verschiedenen Vorzeichen sicher und korrekt durchführen
+\item Klammern setzen, wo nötig oder sinnvoll
+\item Ausmultiplizieren und Ausklammern
+\item Brüche erweitern und kürzen
+\item ggT und kgV bilden und anwenden
+\item Brüchen addieren, subtrahieren, multiplizieren und dividieren
+\item Doppelbrüche vereinfachen
+\end{itemize} 
+Im Grunde gehe ich davon aus, dass Sie die erforderlichen Kenntnisse und Fertigkeiten bereits in der Oberstufe genügend ausführich behandelt und vertieft haben. Somit können Sie durch das Lösen der nun folgenden Aufgaben selber feststellen, wie sicher Sie bei der Anwendung noch sind. Dazu wünsche ich Ihnen viel Spass, Ausdauer und Erfolg!
+
+\section{Hinweise}
+\begin{itemize}
+\setlength{\itemsep}{0pt}
+\item Zur Selbstkontrolle finden Sie die \textbf{Lösungen} zu den verschiedenen Aufgaben jeweils ganz \textbf{am Schluss dieses Dokumentes}.
+\item Sollten Sie feststellen, dass Ihnen das Lösen der Aufgaben Mühe bereitet, versuchen Sie die Ursache haben, aber Ihnen die Routine beim Lösen fehlt, da Sie schon lange nicht mehr geübt haben. In diesem Fall kommen Sie bei mir vorbei und verlangen \textbf{zusätzliche Aufgaben}.
+\item Sollten Sie feststellen , dass das Verlangte nicht in der Oberstufe behandelt wurde, so setzen Sie sich mit mir zusammen und wird besprechen Ihre Fragen.
+\item Jeweils \textbf{am Ende der Kapitel 4,5 und 6 ist eine Lernerfolgskontrolle geplant}. Sobald Sie diese Kapitel durchgearbeitet haben und sich soweit sicher beim Lösen der Aufgaben fühlen, melden Sie sich bei mir und verlangen die entsprechende Lernerfolgskontrolle.
+\end{itemize}
+\newpage
+
+\section{Terme addieren und subtrahieren}
+\textbf{Bemerkung}: In der Mathematik bezeichnet ein \textbf{Term} einen sinnvollen Ausdruck, der Zahlen, Variablen, Symbole für mathematische Verknüpfungen und Klammern enthalten kann.
+
+\subsection{Addition und Subtraktion mit verschiedenen Vorzeichen}
+\subsubsection{Aufgabe: Addieren und subtrahieren Sie.}
+\begin{multicols}{2}
+\begin{itemize}
+\item[a)] \(39x-62y+(-365x)-(-369y)-19x\)
+\item[b)] \(-0,1x-(-0,7b)-1,2x-0,2b\)
+\item[c)] \(-\dfrac{4}{3}b+\dfrac{7}{8}b+(-3\dfrac{1}{2}a)-2a\)
+\item[d)] \(-\dfrac{x}{5}+\dfrac{x}{10}-\dfrac{ax}{3}-(-\dfrac{x}{15})+(-\dfrac{ax}{9})\)
+\end{itemize}
+\end{multicols}
+\, % \medspace 0.2222em
+\begin{flushleft}
+\karos{15}{15}
+\end{flushleft}
+
+\newpage
+
+\section{Terme multiplizieren}
+\subsection{Ausmultiplizieren}
+\subsubsection{Aufgabe: Multiplizieren Sie und fassen Sie wenn möglich zusammen.}
+
+\begin{multicols}{2}
+\begin{itemize}
+\item[a)] \(8ab\cdot4ac\)
+\item[b)] \((-2n)\cdot4acn\)
+\item[c)] \(-x(3a-6b+3r)\)
+\item[d)] \((x-y)(-a+b)\)
+\item[e)] \(8a(-12,5b)(-1,6b)(-a)\)
+\item[f)] \(n^2-n(n+5)-6(1-n)\)
+\item[g)] \(p(q-r)-q(p-r)-r(-p+q)\)
+\item[h)] \((b+2a)(6-2c)\)
+\item[i)] \(-m(2+n)(5-2u)\)
+\item[j)] \(2[5a(4-7b)-ab]\)
+\end{itemize}
+\end{multicols}
+\, % \medspace 0.2222em
+\begin{flushleft}
+\karos{15}{16}
+\end{flushleft}
+
+\newpage
+
+\subsection{Ausklammern}
+\begin{flushleft}
+\textbf{Merke:} Haben alle Summanden einer Summe einen gemeinsamen Faktor, so kann man ihn ausklammern. Die Summe wird dadurch in eine Produkt umgewandelt bzw. ein Summenterm in ein Produktterm. \\~\\
+\textbf{Beispiel:} \(25ab+125ac+75ax=25a\cdot(b+5c+3x)\)
+\end{flushleft}
+
+\subsubsection{Aufgabe: Klammern Sie aus und schreiben Sie die Terme als Produkte.}
+
+\begin{multicols}{2}
+\begin{itemize}
+\item[a)] \(28acd-21ac\)
+\item[b)] \(14ab-a\)
+\item[c)] \(m(a+b)+3(a+b)\)
+\item[d)] \((5e-1)-c(5e-1)\)
+\item[e)] \(20abcx^2-15acx+35bx\)
+\item[f)] \((t-5)x-ty+5y\)
+\item[g)] \(36r^2-60mr+25m^2\)
+\item[h)] \(a^2+10ab+25b^2\)
+\item[i)] \(16s^2-9\)
+\item[j)] \(1-r^2\)
+\end{itemize}
+\end{multicols}
+\, % \medspace 0.2222em
+\begin{flushleft}
+\karos{15}{14}
+\end{flushleft}
+
+\newpage
+
+\subsection{Anwendung Faktorzerlegung: Das Kürzen von Brüchen}
+\begin{flushleft}
+\textbf{Merke:} Besitzt ein Bruchterm für seinen Zähler- und Nennerterm einen gemeinsamen Faktor (Teiler), so darf man diese durch den gemeinsamen Faktor (Teiler) dividieren, ohne dass sich der "Wert" des Bruchterms ändert. Dieser Vorgang heisst "Kürzen des Bruchterms".
+\\~\\ % two newlines in LaTeX
+\textbf{Beispiel:} \(\dfrac{6n+3x}{12n-15x}=\dfrac{3(2n+x)}{3(4n-5x)}=\dfrac{2n+x}{4n-5x}\)
+\end{flushleft}
+
+\subsubsection{Aufgabe: Klammern Sie vollständig aus und kürzen Sie die Brüche.}
+
+\begin{multicols}{3}
+\begin{itemize}
+\item[a)] \(\dfrac{xy+y^2}{x^2y}\)
+\item[b)] \(\dfrac{14}{7r+28}\)
+\item[c)] \(\dfrac{2a-14}{7-a}\)
+\item[d)] \(\dfrac{9d-9f}{18d^2-18df}\)
+\item[e)] \(\dfrac{6x^2-6y^2}{14y+14x}\)
+\item[f)] \(\dfrac{2ax+5bx}{4a^2+20ab+25b^2}\)
+\end{itemize}
+\end{multicols}
+\, % \medspace 0.2222em
+\begin{flushleft}
+\karos{15}{15}
+\end{flushleft}
+
+\newpage
+
+\section{Terme dividieren}
+\subsection{Dividieren mit algebraischen Summen}
+\subsubsection{Aufgabe: Dividieren Sie die Brüche.}
+
+\begin{multicols}{2}
+\begin{itemize}
+\item[a)] \(\dfrac{-39ay+5by-91cy}{-13y}\)
+\item[b)] \(\dfrac{60abc^2}{4bc-6ac+10ac}\)
+\item[c)] \(\dfrac{-24a^2bx^2+12ax-18bx}{6abx^2}\)
+\item[d)] \(\dfrac{48abc}{12acx-36acy+48ac}\)
+\item[e)] \(\dfrac{85x-95y}{102xz-114yz}\)
+\item[f)] \(\dfrac{-(u-v)^2+(u+v)^2}{2uv}\)
+\end{itemize}
+\end{multicols}
+\, % \medspace 0.2222em
+\begin{flushleft}
+\karos{15}{17}
+\end{flushleft}
+
+\subsection{Erweitern von Bruchtermen}
+\begin{flushleft}
+\textbf{Merke:} Man erweitert einen Bruchterm, indem man Zähler- und Nennerterm mit der gleichen von 0 verschiedenen Zahl oder mit der gleichen Variablen multipliziert.
+\end{flushleft}
+
+\subsubsection{Aufgabe: Erweitern Sie die Brüche und Zahlen auf den vorgegebenen Nenner.}
+
+\begin{multicols}{2}
+\begin{itemize}
+\item[a)] \(\dfrac{3x-c}{3v}\) ; \(\dfrac{-1}{20uv}\) ; \(\dfrac{3xy}{-4u} \rightarrow \dfrac{?}{-60u^2v}\) 
+\item[b)] \(-b\) ; \(\dfrac{d}{-8}\) ; \(9\ \rightarrow \dfrac{?}{8bc^2y}\)
+\end{itemize}
+\end{multicols}
+\, % \medspace 0.2222em
+\begin{flushleft}
+\karos{15}{17}
+\end{flushleft}
+
+\newpage
+
+\end{document} % antigrafi 1-1
