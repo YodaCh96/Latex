@@ -1,0 +1,715 @@
+% Dokumentenklasse: 
+%   - {article} : für Kurzberichte.
+% Dokumentenklasseoptionen:
+%   - [11pt]    : Schriftgröße
+%   - [a4paper] : Seitenformat DIN A4
+%   - [twoside] : zweiseitig bedruckt
+%   - [fleqn]   : linksbündige Ausrichtung der Gleichungen
+\documentclass[11pt, a4paper, twoside, fleqn]{article}
+\usepackage{ucs} %Γ Γιατί χρειζόμαστε αυτό το πακέτο;
+% Das Paket inputenc erlaubt die direkte Eingabe von Sonderzeichen wie zum Beispiel deutschen Umlauten, um deren Trennung zu ermöglichen wird zudem das Paket fontenc mit eingebunden.
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+% Hierbei wird ngerman als Option des Paketes babel gesetzt.
+\usepackage[ngerman]{babel}
+% Mit fullpage kann die Texthöhe und -breite sowie die Ränder festlegen, dass die Seite fast voll ist.
+\usepackage{fullpage}
+\usepackage{amsmath, amssymb}
+\usepackage{multicol}
+%Γ Να προσθεθούν οι εντολές όπου ολο το LaTeX δεν έχει Indents και οι αποστάσεις μεταξύ των παραγράφων να είναι σταθερές όπως επίσης και οι αποστάσεις μεταξύ των σειρών.
+% Mit xcolor können Seiten, die Schrift, Rahmen und Felder in den verfügbaren Farben gesetzt werden.
+\usepackage{xcolor}
+\usepackage{tikz}
+% Anpassbare Enumerates/Itemizes
+\usepackage{enumitem}
+%Γ Να καταλάβουμε την συνάρτηση karos και με ποιον τρόπο λειτουργεί.
+\newcommand{\karos}[2]{ 
+  \begin{tikzpicture}
+    \draw[step=0.5cm,color=gray] (0,0) grid (#1 cm ,#2 cm);
+  \end{tikzpicture}
+}
+\setlength{\mathindent}{0cm}
+\setlength\parindent{0pt}
+\title{Das Rechnen mit Potenzen(Potenzieren)} 
+\author{Ioannis Christodoulakis}
+\date{\today}
+\begin{document}
+% Der Befehl \selectlanguage{ngerman} ändert die Standardsprache des Dokumentes.
+\selectlanguage{ngerman}
+\maketitle
+% Die Anweisung beendet lediglich die aktuelle Seite.
+\newpage
+% Dieser Befehl veranlasst LaTeX ein Inhaltsverzeichnis zu erzeugen. 
+\tableofcontents
+% Die Anweisung beendet lediglich die aktuelle Seite.
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Ressourcen gemäss KoRe}
+\textcolor{red}{Todo...}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Einleitung und Übersicht}
+In einem ersten Schritt werden wir uns den \textbf{ Begriff der  ,,Potenz} annähern und erkennen, dass die Potenzschreibweise eine Kurzform eines mathematischen Terms ist. Und wenn man schon eine Kurzform einführt, so muss man auch mit dieser Kurzform rechen können. Dies lernen wir in einem zweiten Schritt, nämlich das \textbf{Rechen mit Potenzen}. Eine besondere Stellung nimmt darin das \textbf{Rechnen mit 10er-Potenzen ein,denn mit 10 er-Potenzen} stellen wir in der Elektrotechnik und Elektronik die Werte von Strömen, Spannungen, Widerständen, Kapazitäten, Zeiten und vieles mehr dar. Wir lernen aber auch, wie man die Schreibweise mit 10er-Potenzen noch eleganter durch die \textbf{Schreibweise mit SI-Vorsätzen}  darstellen kann. Mit der Einführung der SI-Vorsätze können wir nämlich den Zahlenbereich von Grössen mit Buchstaben wie "m" für Mili (ein Tausendstel) oder "k" für Kilo (Tausend) übersichtlich darstellen. \\
+Und natürlich darf auch die \textbf{Handhabung des Taschenrechners} nicht fehlen, denn wenn man schon eine verkürzte Schreibweise einführt, so soll man den Taschenrechner zu Rechenzwecken auch dafür vorteilhaft einsetzen können.
+% Die Anweisung beendet lediglich die aktuelle Seite.
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Potenzbegriff}
+Den Potenzbegriff erötern wir am besten an einem konkretem Beispiel, nämlich der Volumenberechnung eines Würfels, dessen Kanten eine Länge a=4 cm haben. Das Volumen berechnen wir nun wie folgt:
+\[V= a \cdot a \cdot a = 4 cm \cdot 4 cm \cdot 4cm = 64cm^3 \]
+Hierfür kennen wir aber auch die folgende Kurzschreibweise:
+\[V= a^3 = (4cm)^3 = 64 cm^3 \]
+Sie sehen also, dass die Potenzschreibweise nur eine Kurzform eines mathematischen Terms ist. Somit können wir folgendes definieren:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Definition}
+\textcolor{red}{Todo...}
+% fügt einen vertikalen Zwischenraum der festen Länge 10pt ein
+\vskip 10pt
+Besteht ein Produkt aus lauter gleichen Faktoren, so drückt man es verkürzt als Potenz aus. Der Exponent gibt an, wie oft die Basis als Faktor gesetzt werden muss.
+% fügt einen vertikalen Zwischenraum der festen Länge 10pt ein
+\vskip 10pt
+\textbf{Besonderheiten:}
+\[a^1 = a \quad \text{(der Exponent wird nicht geschrieben)} \]
+\[a^0 = 1 \quad \text{(jede Zahl hoch Null ergibt eins)} \]
+% fügt einen vertikalen Zwischenraum der festen Länge 10pt ein
+\vskip 10pt
+\emph{Beispiele}
+\begin{itemize}
+\setlength{\itemsep}{0pt}
+\item[a)] $ 2\cdot 2\cdot 2\cdot 2\cdot2= 2^{5} $
+\item[b)] $ (-3)\cdot(-3)\cdot(-3)\cdot(-3) = (-3)^4 = (-1)^4\cdot (3)^4 = +(3^4) = 81 $
+\item[c)] $ (-3)\cdot(-3)\cdot(-3) = (-3)^3 = (-1)^3 \cdot (3)^3 = -(3^3) = -27 $
+\item[d)] $ (a-b) \cdot (a-b)\cdot (-b) = (a-b)^3 $
+\end{itemize}
+% fügt einen vertikalen Zwischenraum der festen Länge 10pt ein
+\vskip 10pt
+\textbf{Merke:}
+\begin{itemize}
+\setlength{\itemsep}{0pt}
+\item $ (+a)^n = a^n $
+\item $ (-a)^{2n} = a^{2n} \enspace \text{aber} \enspace - (a)^2n = -a^{2n} $ 
+\item $ (-a)^{2n+1} = -a^{2n+1} $
+\end{itemize}
+% Die Anweisung beendet lediglich die aktuelle Seite.
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Übungen}
+Berechnen Sie ohne Taschenrechner.
+\begin{multicols}{2}
+\begin{enumerate}[leftmargin=*]
+\item $ (-2)^4 $
+\item $ -(3)^2 $
+\item $ (-b)^2 $
+\item $ (3-5)^3 $
+\item $ (5-3)^3 $
+\item $ -(2)^5 $
+\item $ -(2)^{5-4} $
+\end{enumerate}
+\end{multicols}
+\karos{15}{18}
+% Die Anweisung beendet lediglich die aktuelle Seite.
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Rechnen mit Potenzen}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Potenzen mit gleichen Basen multiplizieren}
+\textcolor{red}{xxx} 
+\begin{flushleft}
+\emph{Beispiele}
+\end{flushleft}
+\begin{itemize}
+\setlength{\itemsep}{0pt}
+\item[a)] \(2^{2} \cdot2^3 = 2^{2+3} = 2^5 denn: 2^{2}\cdot2^{3} = (2\cdot2)\cdot(2\cdot2\cdot2)=2\cdot2\cdot2\cdot2\cdot2=2^{5}\)
+\item[b)] \(7^3\cdot7^4 =7^{3+4} =7^7 denn: 7^3 \cdot 7^4) =(7\cdot7\cdot7)\cdot(7\cdot7\cdot7\cdot7)=7\cdot7\cdot7\cdot7\cdot7\cdot7\cdot7=7^7\)
+\end{itemize}
+\begin{flushleft}
+\textbf{Merke:} \\
+Potenzen mit gleichen Basen werden multipliziert, indem man die Exponenten addiert und die Basis mit der Summe der Exponenten potenziert.
+\end{flushleft}
+% Die Anweisung beendet lediglich die aktuelle Seite.
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Potenzen mit gleichen Basen dividieren}
+\textcolor{red}{xxx} 
+\begin{flushleft}
+\emph{Beispiele}
+\end{flushleft}
+a) \(\dfrac{x^{5}}{x^{3}} = x^{5-3} = x^2\)  \text{denn,}  \(\dfrac{x^5}{x^3}= \dfrac{x \cdot x \cdot x \cdot x \cdot x}{x \cdot x \cdot x} = x \cdot x = x^2\)
+\begin{flushleft}
+\textbf{Merke:} \\ 
+Potenzen mit gleichen Basen werden dividiert, indem man die Basis mit der Differenz der Exponenten potenziert. 
+\end{flushleft}
+\begin{flushleft}
+b) \(\dfrac{a^3}{a^5}= \dfrac{a\cdot a \cdot a}{a \cdot a \cdot a \cdot a \cdot a} = \dfrac{1}{a \cdot a} = \dfrac{1}{a^2}\) \text{oder:} \(\dfrac{a^3}{a^5} = a^{3-5} = a^{-2}\) \text{deshalb gilt:}  \(\dfrac{1}{a^2}= a^{-2}\)
+\end{flushleft}
+\noindent \textcolor{red}{xxx} 
+\begin{flushleft}
+\emph{Beispiele} 
+\end{flushleft}
+\begin{flushleft}
+a) \(x^{-2} = \dfrac{1}{x^2}\)
+b) \( (a+b)^2 + c^{-2} = \dfrac{1}{(a+b)^2} + \dfrac{1}{c^2}\)
+c) \(a^7 \cdot a^{-7} = \dfrac{a^7}{a^7} = \dfrac{ a \cdot a \cdot a \cdot a \cdot a \cdot a \cdot a}{a\cdot a \cdot a \cdot a \cdot a \cdot a \cdot a} = 1\) \text{oder:} \(a^7 \cdot a^{-7} = a^{7-7} = a^0 \) \text{deshalb gilt:} \(a^0 =1\)
+\end{flushleft}
+\begin{flushleft}
+\textbf{Merke:} \\
+Eine beliebige Basis (ungleich null) potenziert mit dem Exponenten Null ergibt eins.
+\end{flushleft}
+\noindent \textcolor{red}{xxx}
+% Die Anweisung beendet lediglich die aktuelle Seite.
+\newpage
+\begin{flushleft}
+\emph{Beispiele: Das Darstellen von Einheiten} 
+\end{flushleft}
+\noindent \textcolor{red}{xxx} 
+\begin{flushleft}
+%Γ Ersetzen mit einer unnummerierten Auflistung
+a) \(\dfrac{1}{s} = \dfrac{1}{s^1}= s^{-1}\) \\~\\
+b) \(\dfrac{1}{s^2} = s^{-2}\) \\~\\
+c) \(\dfrac{m}{s} = m \cdot s^{-1}\) \\~\\ 
+d) \(\dfrac{mV}{K} = mV \cdot K^{-1}\) \\~\\
+\end{flushleft}
+\begin{flushleft}
+\emph{Eigene Beispiele aus der Praxis} \\~\\
+\karos{15}{13}
+\end{flushleft}
+% Die Anweisung beendet lediglich die aktuelle Seite.
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Ein Produkt potenzieren}
+\textcolor{red}{xxx} 
+\begin{flushleft}
+\emph{Beispiele} 
+\end{flushleft}
+%Γ Ersetzen mit einer unnummerierten Auflistung
+a) \((-3cy)^4 = (-3)^4 \cdot c^4 \cdot y^4 = 81c^4 y^4\) \\~\\
+b) \((a+b)^2 \neq a^2 + b^2\) \text{sondern:} \((a+b)^2 = a^2 + ab +ba +b^2 = a^2 + 2ab +b^2\)
+\begin{flushleft}
+\textbf{Merke:} \\
+Ein Produkt wird potenziert, indem jeder Faktor potenziert wird. \\
+Oder umgekehrt: Potenzen mit gleichen Exponenten werden multipliziert, indem das Produkt der Basen mit dem gemeinsamen Exponenten potenziert wird.
+\end{flushleft}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Ein Bruch potenzieren}
+\textcolor{red}{xxx} 
+\begin{flushleft}
+\emph{Beispiele}
+\end{flushleft}
+a) \(\left(\dfrac{2c}{a}\right)^3 = \dfrac{(2c)^3}{a^3} = \dfrac{2^3 c^3}{a^3}= \dfrac{8c^3}{a^3}\)
+\begin{flushleft}
+\textbf{Merke:} \\
+Ein Bruch wird potenziert, indem der Zähler und der Nenner potenziert werden.\\
+Oder umgekehrt: Potenzen mit gleichen Exponenten werden dividiert, indem der Quotient der Basen mit dem gemeinsamen Exponenten potenziert wird.
+\end{flushleft}
+% Die Anweisung beendet lediglich die aktuelle Seite.
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Eine Potenz potenzieren}
+\textcolor{red}{xxx}
+\begin{flushleft}
+\emph{Beispiele}
+\end{flushleft}
+a) \((u^2)^3 = (u^3)^2 = u^{2 \cdot 3} = u^6\) \text{denn:} \((u^2)3 = u^2 \cdot u^2 \cdot u^2 = u^{2+2+2} = u^6\)
+\begin{flushleft}
+\textbf{Merke:} \\
+Eine Potenz wird potenziert, indem die Basis mit dem Produkt der Exponenten potenziert wird. Die Exponenten dürfen vertauscht werden. 
+\end{flushleft}
+\begin{flushleft}
+\emph{Beispiele}
+\end{flushleft}
+b) \((2^3)^3 = 2^{3 \cdot 3} = 2^9\) \text{aber:} \\ %Ε \( 2(^3) = 2^{27} \)
+c) \text{was ist} %Ε \(2^3^3\)
+\text{(ist das gleich} \(2^9\) \text{oder} \(2^{27}?\) 
+\begin{flushleft}
+\textbf{Wichtig:} \\
+Beim Potenzieren setzt man vorsichtigerweise immer Klammern.
+\end{flushleft}
+% Die Anweisung beendet lediglich die aktuelle Seite.
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Zusammenfassung der Potenzgesetze}
+\begin{flushleft}
+Wenn n und ganze Zahlen sind, dann gelten die folgenden Gesetze:
+\end{flushleft}
+\noindent \textcolor{red}{xxx}
+% Die Anweisung beendet lediglich die aktuelle Seite.
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Übungen}
+\begin{flushleft}
+Vereinfachen Sie folgende Terme so weit als möglich.
+\end{flushleft}
+\begin{flushleft}
+1. \(6a^4 + 2a^2 + 8a^4 - a^2\) 
+ \noindent \karos{15}{3} \\~\\ 
+%Ε Χωρίς το \noindent και το \\~\\ είναι πολύ μικρή η απόσταση τους και αν δεν βάλω το \begin, το 1 πάει πιο δεξιά. Χρειαζόμαστε μια nummerierte Liste?
+%Γ Μάλλον ναι.
+2. \(a^4 \cdot 2a^3 \cdot 3a^2\)
+\noindent \karos{15}{3} \\~\\
+3. \((2nx)^3\) 
+\noindent \karos{15}{3}  \\~\\
+5. \((-2^4)^3\) 
+\noindent \karos{15}{3}
+\end{flushleft}
+% Die Anweisung beendet lediglich die aktuelle Seite.
+\newpage
+\begin{flushleft}
+6. \( \dfrac{ab^2}{(ab)^2}\) 
+\noindent \karos{15}{3} \\~\\
+7. \( (\dfrac{3a^2}{2x^3})^3\) 
+\noindent \karos{15}{3} \\~\\
+8. \(\dfrac{x^5 \cdot y^7}{x^3 \cdot y^5}\)
+\noindent \karos{15}{3} \\~\\
+9. \(\dfrac{a^{-2} x^4 y^{-6}}{b^3 c^{4} d^{-5}} \div \dfrac{a^{-3} b^{-3} x^3 }{c^{-5} y^6 d^{-6}}\) %Ε Υπάρχει τρόπος να τα κάνουμε πιο αραιά;
+%Γ Ποια?
+%Ε Η εμφάνιση τους στο PDF είναι κολλητά
+\karos{15}{3} \\~\\
+10. \(\dfrac{(a+b)^{m+1}}{(a+b)^{m-1}} \cdot \dfrac{(x+y)^{-n}}{(x+y)^{4-n}}\) 
+\noindent \karos{15}{3}
+\end{flushleft}
+% Die Anweisung beendet lediglich die aktuelle Seite.
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Γ Να μπόυνε ,,xxx"
+\subsection{Übungen aus: [KG,259/15.1] Potenzen mit ganzen Zahlen als Exponenten}
+\begin{flushleft}
+5, 14, 15, 19, 23, 27, 31, 34, 40, 44, 51, 58, 59, 68, 70
+\noindent \karos{15}{15}
+\end{flushleft}
+% Die Anweisung beendet lediglich die aktuelle Seite.
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Rechen mit Zehnerpotenzen und SI-Vorsätzen}
+\begin{flushleft}
+Zehnerpotenzen werden verwendet um grosse und kleine Zahlen übersichtlich darzustellen. In der Praxis wird an ihren Stelle jedoch oft die Schreibweise mit SI-Vorsätzen bevorzugt. Die nachfolgende Tabelle zeigt die wichtigsten Zehnerpotenzen mit ihrem Namen und dem entsprechenden SI-Vorsatz.
+\end{flushleft}
+\noindent \textcolor{red}{xxx}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Darstellungsregeln}
+\begin{flushleft}
+Für die Anwendung der SI-Vorsätze gelten einige Regelnd. Die Wichtigsten sind:
+\end{flushleft}
+\begin{itemize}
+\setlength{\itemsep}{0pt}
+\item Keine Einheit darf gleichzeitig mehr als einen Vorsatz erhalten. (falsch: mkm, Mk\(\Omega\))
+\item Die Kombination der SI-Vorsatzes und der Einheit gilt als ein Symbol(z.B. \(cm^2=c^2m^2\))
+\item Vorsätze, die einer ganzzahligen Potenz von \(10^{3n}\) entsprechen, sind zu bevorzugen (z.B. \((10^3 , 10^{-6})\). $\rightarrow$ \textbf{Technisches Format} beim Taschenrechner $\rightarrow$ \textbf{ENG}
+\item Die Vorsätze Hekto \((h = 10^2)\), Dezi \((d = 10^{-1})\) und Zenti \((c = 10^{-2})\) sollen nur bei Einheiten verwendet werden, bei denen sie bereits üblich sind.
+\item Die Einheiten von Ergebnissen sollen mit dem Vorsatz versehen werden, der den Zahlenwert möglichst in den Bereich \textbf{0,1...1000} bringt.
+\item Bei zusammengesetzten Einheiten kann jeder der Einheiten einen dezimalen Vorsatz haben. Angestrebt werden soll jedoch, möglichst nur einen Vorsatz, und diesen Zähler, zu verwenden. )z.B. km/h)
+\end{itemize}
+% Die Anweisung beendet lediglich die aktuelle Seite.
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Verwendung des Taschenrechners(TR)}
+\textcolor{red}{xxx}
+% Die Anweisung beendet lediglich die aktuelle Seite.
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Übungen}
+\begin{flushleft}
+1) Ergänzen Sie untenstehende Tabelle zuerst noch ohne Taschenrechner.\\
+2) Geben Sie die Werte vorteilhaft in den Taschenrechner ein. Werden sie auch im Technischen Format angezeigt? 
+\end{flushleft}
+\noindent \textcolor{red}{xxx}
+\begin{flushleft}
+3) Geben Sie die Lichtgeschwindigkeit \((c=300'000'000 m/s)\)in der Schreibweise mit Zehnerpotenzen und in der Schreibweise mit SI-Vorsätzen an. 
+\karos{15}{3} \\~\\
+4) Geben Sie die Distanz Erde - Sonne \((d = 149'600'000'000 m)\) in der Schreibweise mit Zehnerpotenzen und in der Schreibweise mit SI-Vortätzen an. 
+\karos{15}{3} \\~\\
+5) Geben Sie a) \(1cm^3\) und b) \(( 1\mu s)^{-1}\) gemäss den obigen Darstellungsregeln an. 
+\karos{15}{3}
+\end{flushleft}
+% Die Anweisung beendet lediglich die aktuelle Seite.
+\newpage
+\begin{flushleft}
+6) Es sei \( C_1 = \dfrac{t_p}{0,7 \cdot R_{B1}} \text{mit} \,  t_p = 1,05 \, \text{ms und} \, R_{B1} = 100 \Omega . Berechnen Sie C_1 ohne TR.\) \\~\\
+\karos{15}{3}
+\end{flushleft}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Vertiefungsaufgabe}
+\begin{flushleft}
+Erstellen Sie auf einer halben A4-Seite ein eigenes Beispiel aus den Fachbereichen Elektrotechnik oder Elektronik inkl. Musterlösung )auf der Rückseite). Beachten Sie bitte, dass die Zahlenwerte so wählen sind, dass sie auch ohne Taschenrechner gelöst werden können.
+\end{flushleft}
+% Die Anweisung beendet lediglich die aktuelle Seite.
+\newpage
+\subsection{Streckenmasse umrechnen}
+\begin{flushleft}
+\emph{Beispiele 1: mm in km umrechnen} 
+\end{flushleft}
+\(5mm = 5 \cdot (10^{-3})m = 5\cdot10^{-3} m \) \\
+%Ε Το βέλος χρειάζεται να μπει πιο μέσα.
+\(\mapsto 1m = \dfrac{1}{1000} km = \dfrac{1}{10^3}km = 10^{-3} km \) \\~\\
+\( 5mm = 5 \cdot 10^{-3} \cdot10^{-3} km = 5 \cdot10^{-6} km\) 
+\begin{flushleft}
+\emph{Beispiele 2: km in dm umrechnen}
+\end{flushleft}
+\(5km = 5 \cdot(10^3)m\) \\
+%Ε Το βέλος χρειάζεται να μπει πιο μέσα.
+\(\mapsto 1m = 10 dm = 10^1 dm\) \\
+\(5 km = 5 \cdot (10^3) \cdot 10^1 dm = 5 \cdot 10^{3+1} dm = 5 \cdot 10^4 dm = 50 \cdot 10^3 dm\)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Flächenmasse umrechnen}
+\begin{flushleft}
+\emph{Beispiel 1: \(mm^2\) in \(m^2\) umrechnen}
+\end{flushleft}
+\(445mm^2 = 445 \cdot[(10^{-3})m]^2 = 445 \cdot(10^{-3})^2 m^2 = 445 \cdot 10^{-6} m^2\) 
+\begin{flushleft}
+\emph{Beispiel 2: \( km^2\) in \(dm^2\) umrechnen}
+\end{flushleft}
+\(0,5 \cdot10^{-2} km^2 = 0,5 \cdot 10^{-2} \cdot [(10^3)m]^2\) \\
+%Ε Το βέλος χρειάζεται να μπει πιο μέσα.
+\(\mapsto 1 m = 10 dm = 10^1 dm\) \\ 
+\(0,5\cdot10^{-2}km^2 = 0,5 \cdot10^{-2} \cdot[(10^3) \cdot10^1 dm]^2 = 0,5 \cdot10^{-2} [10^4 dm]^2 = 0,5 \cdot10^{-2} \cdot10^8 dm^2 = 0,5 \cdot 10^6 dm^2\)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Volumenmasse umrechnen}
+\begin{flushleft}
+\emph{Beispiel 1: \(cm^3\) in \(dm^3\) umrechnen} 
+\end{flushleft}
+\(1,25 \cdot10^3 cm^3 = 1,25 \cdot10^3 \cdot[(10^{-2})m]^3\) \\
+%Ε Το βέλος χρειάζεται να μπει πιο μέσα.
+\(\mapsto 1m = 10 dm = 10^1 dm\) \\
+\(1,25 \cdot10^3 cm^3 = 1,25 \cdot 10^3 \cdot [(10^{-2}) \cdot 10^1 dm]^3 = 1,25 \cdot10^3 \cdot[10^{-1} dm]^3 = 1,25 \cdot10^3 \cdot10^{-3} dm^3 = 1,25 dm^3\)
+% Die Anweisung beendet lediglich die aktuelle Seite.
+\newpage
+\begin{flushleft}
+\emph{Beispiel 2: \(m^3\) in \(mm^3\) umrechnen} 
+\end{flushleft}
+\(0,5 \cdot10^{-2} m^3 = 0,5 \cdot10^{-2} \cdot[1m]^3\) \\
+%Ε Το βέλος χρειάζεται να μπει πιο μέσα.
+\(\mapsto 1m = 1000 mm = 10^3 mm\) \\
+\(0,5 \cdot10^{-2} m^3 = 0,5 \cdot10^{-2} [10^3 mm]^3 = 0,5 \cdot10^{-2} \cdot10^9 mm^3 = 0,5 \cdot10^7 mm^3 = 5 \cdot10^6 mm^3\)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Übungen}
+\begin{flushleft}
+1) Rechnen Sie die Streckenmasse ineinander um.
+\end{flushleft}
+\noindent \textcolor{red}{xxx}
+\begin{flushleft}
+2) Rechnen Sie die Flächenmasse ineinander um.
+\end{flushleft}
+\noindent \textcolor{red}{xxx}
+\begin{flushleft}
+3) Rechnen Sie die Volumenmasse ineinander um.
+\end{flushleft}
+\noindent \textcolor{red}{xxx} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Vertiefungsaufgabe}
+\begin{flushleft}
+Erstellen Sie mit EXCEL einen Strecken-, Flächen- und Volumenmassumrechner gemäss untenstehendem Beispiel. Damit können sie anschliessend die Aufgaben aus der obigen Serie selbständig überprüfen.
+\end{flushleft}
+\noindent \textcolor{red}{xxx}
+% Die Anweisung beendet lediglich die aktuelle Seite.
+\newpage\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Potenzieren von Summen und Differenzen}
+Beispiel: \((a-b)^2 = ( a-b)\cdot (a-b) = a^2 -ab -ba +b^2 = a^2 - 2ab + b^2\)
+\begin{flushleft}
+\textbf{Merke:} \\ 
+Eine zweigliedrige Summe oder Differenz nennt man \textbf{Binom}.
+\end{flushleft}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Binomische Formeln}
+\textcolor{red}{xxx}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Übungen}
+\begin{flushleft}
+1) Berechnen Sie mit Hilfe der binomischen Formeln die Potenz \((2x -3y)^3\) vorteilhaft durch Substitution. \\~\\
+2) Erstellen Sie anschliessend eine eigene Aufgabe inkl. Lösung und tauschen Sie diese mit einem Mitlernenden aus. Wählen Sie hierfür nicht zu grosse Zahlenwerte.
+\end{flushleft}
+\karos{15}{8}
+% Die Anweisung beendet lediglich die aktuelle Seite.
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Faktorzerlegung an Termen mit Potenzen}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Vorgehen}
+\begin{flushleft}
+Terme in denen Potenzen vorkommen, können oft vereinfacht werden, indem man sie in Faktoren zerlegt. \\
+Dabei hat sich das folgende Vorgehen bewährt. 
+\end{flushleft}
+\begin{itemize}
+\setlength{\itemsep}{0pt}
+\item Orden
+\item Gemeinsame Faktoren ausklammern
+\item Binome suchen
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Übungen}
+\begin{flushleft}
+Zerlegen Sie folgende Summen in möglichst viele Faktoren.
+\end{flushleft}
+%Ε Πάει πιο δεξιά.
+\begin{flushleft}
+%Ε Πολύ πιθανόν χρείαζεται λίστα.
+1) \(8a^4 - 16 a^3\) \\
+\karos{15}{3} \\~\\
+2) \(4a^2 x^3 - 6a^2 y + 6bx^3 - 9by\) \\
+\karos{15}{3} \\ ~\\
+\end{flushleft}
+\begin{flushleft}
+\textbf{Merke:} \\
+Die \textbf{Differenz zweier Quadrate} lassen sich immer als Produkt schreiben.
+\end{flushleft}
+\noindent \textcolor{red}{xxx } 
+denn: \( (a+b) \cdot (a-b) = a^2 - ab +ab - b^2 =a^2 -b^2\) 
+\begin{flushleft}
+Zerlegen Sie folgende Terme in möglichst viele Faktoren.
+\end{flushleft}
+3) \(16x^2 - 81 y^2\) \\
+\karos{15}{3}
+% Die Anweisung beendet lediglich die aktuelle Seite.
+\newpage
+\begin{flushleft}
+4) \(9a^ - 1\)
+\karos{15}{3} \\~\\
+\end{flushleft}
+5) \(27u^2 v^2 - 75a^4 b^2\) \\
+\karos{15}{3} \\~\\
+6) \( a^8 - b^8\) \\
+\karos{15}{3} \\~\\
+\begin{flushleft}
+\textbf{Merke:} \\
+Mit Hilfe der \textbf{binomischen Formeln} lassen sich Produkte bilden. \\~\\
+Zerlegen Sie folgende Terme unter Verwendung der binomischen Formeln in möglichst viele Faktoren.
+\end{flushleft}
+7) \( 25x^2 - 30xy + 9y^2\) \\
+\karos{15}{3} \\~\\
+8) \( a^3 - 6a^2 b + 12ab^2 - 8b^3\)\\
+\karos{15}{3}
+% Die Anweisung beendet lediglich die aktuelle Seite.
+\newpage
+\begin{flushleft}
+9) \(32a^2 + 16a + 2\) \\
+\karos{15}{3} \\~\\
+\end{flushleft}
+\begin{flushleft}
+\textbf{Merke:}\\
+In vielen Fällen kann die Formel 
+\end{flushleft}
+\noindent \textcolor{red}{xxx}
+\begin{flushleft}
+angewendet werden. Beispiel: \(x^2 + 10x +21 = (x + 7)\cdot (x + 3) \) \\
+Gesucht sind also zwei Zahlen a und b, deren Produkt 21 und deren Summe 10 ergibt; also: \\
+\(7 \cdot 3 = 21\) \text{und} \( 7 + 3 = 10\) \\
+Zerlegen Sie folgende Terme in möglichst viele Faktoren.
+\end{flushleft}
+\begin{flushleft}
+10) \( b^2 - 11b - 60\) \\
+\karos{15}{5}\\~\\
+11) \( 2a^2 y^2 + 8a^2 y - 42a^2\) \\
+\karos{15}{5}
+\end{flushleft}
+% Die Anweisung beendet lediglich die aktuelle Seite.
+\newpage
+\begin{flushleft}
+\textbf{Merke:}\\
+Eine Summe aus drei Summanden lässt sich in ein Produkt verwandeln, wenn man den ersten und den letzten Summanden so in Faktoren zerlegt, dass die Summe der Produkte entsprechender Faktoren das mittlere Glied ergibt.Beispiel:
+\end{flushleft}
+\(36x^2 + 47xy + 15y^2 = (4x + 3y) \cdot (9x + 5y)\) \\
+\noindent \textcolor{red}{xxx}
+\begin{flushleft}
+Zerlegen Sie folgenden Term in ein Produkt. 
+\end{flushleft}
+\begin{flushleft}
+12) \( 21a^2 - 2ab - 8b^2\)\\
+\karos{15}{4} \\~\\
+\end{flushleft}
+\begin{flushleft}
+\textbf{Merke:}\\
+Bruchterme mit Potenzen werden vereinfacht, indem man die Terme im Zähler und Nenner in möglichst viele Faktoren zerlegt und anschliessend kürzt. 
+\end{flushleft}
+\begin{flushleft}
+13) \(\dfrac{63a - 49 b}{81a^2 - 49b^2}\) \\
+\karos{15}{4} \\~\\
+14) \( \dfrac{3bc^2 - cd + 15bc - 5d}{6bc^2 - 2cd - 3bc + d}\) \\
+\karos{15}{4}
+\end{flushleft}
+% Die Anweisung beendet lediglich die aktuelle Seite.
+\newpage
+\begin{flushleft}
+15) \( \dfrac{a^4 - b^4}{a + b}\) \\
+\karos{15}{5} 
+\end{flushleft}
+16) \( \dfrac{x^2 - 4x + 3}{x^2 + x - 2} + \dfrac{x^2 - x - 2}{x^2 - 2x - 3} + \dfrac{x^2 - 5x + 4}{x^2 - 4x + 3} - \dfrac{6x^2 + 3x - 3}{2x^2 + 3x - 2}\) \\
+\karos{15}{5}
+% Die Anweisung beendet lediglich die aktuelle Seite.
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Γ Να μπόυνε ,,xxx"
+\subsection{Übungen aus: [KG, 262/15.2] Faktorzerlegung an Termen mit Potenzen}
+\(8 ,12 ,23 ,36 ,45 ,53 ,54 \)\\
+\karos{15}{15}
+% Die Anweisung beendet lediglich die aktuelle Seite.
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Potenzfunktionen}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Potenzfunktionen mit positiv-ganzzahligen Exponenten}
+\begin{flushleft}
+Funktionen mit der Funktionsgleichung \(y = f(x) = x^n \text{mit} n \in N\) nennt man  Potenzfunktionen mit positiv-ganzzahligen Exponenten.
+\end{flushleft}
+\begin{flushleft}
+\emph{Beispiel mit \(n=1\) : \(y(x) = k \cdot x^1\)} 
+\end{flushleft}
+\noindent \textcolor{red}{xxx}
+\begin{flushleft}
+Feststellung: Die Funktion \(y(x)= k\cdot x^1\) ist eine \textbf{lineare Funktion}. Ihr Graf ist eine \textbf{Gerade}. 
+\end{flushleft}
+\begin{flushleft}
+\emph{Beispiel mit \(n = 2 : y(x) = k \cdot x^2\)}
+\end{flushleft}
+\noindent \textcolor{red}{xxx}    
+\begin{flushleft}
+Feststellung: Die Funktion \( y(x) = k \cdot x^2\) ist eine \textbf{quadratische Funktion}. Ihr Graf ist eine \textbf{Parabel}.
+\end{flushleft}
+\begin{flushleft}
+\emph{Weitere Beispiel}\\
+\(n = 3: y(x) = x^3\) ist eine \textbf{kubische Funktion}. Ihr Graf ist eine \textbf{Wendeparabel}(Parabel 3. Ordnung)
+\end{flushleft}
+% Die Anweisung beendet lediglich die aktuelle Seite.
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Potenzfunktionen mit negativ-ganzzhligen Exponenten}
+\begin{flushleft}
+Funktionen mit der Funktionsgleichung \(y = f(x) = x^{-n} = \dfrac{1}{x^n} \text{mit} n \in N\) nennt man Potenzfunktionen mit negativ-ganzzahligen Exponenten.
+\end{flushleft}
+\begin{flushleft}
+\emph{Beispiel mit \(n = -1: y(x) = k \cdot x^{-1} = k \cdot \dfrac{1}{x}\)} 
+\noindent
+\end{flushleft}
+\noindent \textcolor{red}{xxx}
+\begin{flushleft}
+Feststellung: Der Graf der Funktion \( y(x) = k \cdot x^{-1} = k \cdot \dfrac{1}{x}\) ist eine \textbf{Hyperbel}. Der Graf nähert sich den Koordinatenachsen, ohne sie zu erreichen
+\end{flushleft}
+\begin{flushleft}
+\emph{Beispiel mit \( n = -2: y(x) = k\cdot x^{-2} = k \cdot \dfrac{1}{x^2}\)} \\
+\textcolor{red}{xxx}
+\end{flushleft}
+% Die Anweisung beendet lediglich die aktuelle Seite.
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Übungen}
+\begin{flushleft}
+Benennen Sie die Grafen folgender Funktionsgleichungen.
+\end{flushleft}
+\noindent \textcolor{red}{xxx}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Γ Να μπόυνε ,,xxx"
+\subsection{ Übungen aus: [KG, 266/ 15.3] Potenzfunktionen der Form \(y(x) = a \cdot x^{n}\)}
+\( 1, 2, 3,\)
+\begin{flushleft}
+Hinweis: Lösen Sie die Aufgaben mit EXCEL. Bereiten Sie das Worksheet in EXCEL so vor, dass a und n frei wählbare Parameter sind, die dann der Aufgabe entsprechend angepasst werden können.
+\end{flushleft}
+\noindent \textcolor{red}{xxx}
+% Die Anweisung beendet lediglich die aktuelle Seite.
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Potenzen mit rationalen Zahlen als Exponenten}
+\begin{flushleft}
+%Ε Νιοστή ρίζα, το 2 να πάει πιο δεξία,δίπλα στη ρίζα.
+Beispiel: \({2}^{\frac{1}{2}} = ^{2}\sqrt{2}^1 = \sqrt{2}\) 
+\end{flushleft} 
+\begin{flushleft}
+\textbf{Merke:} \\
+Alle Gesetze der Potenzrechnung gelten auch für Potenzen mit Zahlen als Exponenten
+\end{flushleft}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Formeln}
+\textcolor{red}{xxx}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Übungen}
+\begin{flushleft}
+Berechnen Sie ohne Taschenrechner.
+\end{flushleft}
+%Ε Εκθέτης σε δύναμη, το 4 να φαίνεται μικρότερο.
+1) \(\left(2^{\frac{1}{2}}\right)^{4}\) \\
+\karos{15}{4} \\~\\
+%Ε Εκθέτης σε δύναμη, το 3 να φαίνεται μικρότερο.
+2) \(\left(3^{\frac{2}{3}}\right)^{3}\) \\
+\karos{15}{4}
+% Die Anweisung beendet lediglich die aktuelle Seite.
+\newpage
+\begin{flushleft}
+3) \(4^{\frac{3}{2}}\) \\
+\karos{15}{3} \\~\\
+4) \(\left(3^{\frac{2}{3}}\right)^3\)\\
+\karos{15}{3}\\~\\
+5) \(16^{\frac{3}{4}}\) \\
+\karos{15}{3} \\~\\
+6) \(32^{-0.2}\) \\
+\karos{15}{3}\\~\\
+%E Να δούμε τι γράφει στο κανονικό PDF.
+7) \((\sqrt{b})^{2x}\) \\
+\karos{15}{3}
+\end{flushleft}
+% Die Anweisung beendet lediglich die aktuelle Seite.
+\newpage
+\begin{flushleft}
+8) \(\left(b^{\frac{-m}{a}}\right)^{ax}\) \\
+\karos{15}{4} \\~\\
+9) \((^3\sqrt{x}^{4})^{15}\) \\
+\karos{15}{4} \\~\\
+%E Πάλι έχω θέμα με τις παρενθέσεις.
+%E 10) \(\left(6x\right)^{\dfrac{1}{3} \cdot  \left(\dfrac{1}{x}\right)^{\dfrac{1}{3}}\)
+\karos{15}{4} \\~\\
+%Ε Μου βγάζει ένα λάθος.
+%Ε 11) \(\left({a^{\frac{1}{2}} + b^{\frac{-1}{2}} \right) \cdot \left(a^{\frac{1}{2}} - b^{\frac{1}{2}}\right)\)
+\karos{15}{4}
+\end{flushleft}
+% Die Anweisung beendet lediglich die aktuelle Seite.
+\newpage
+\begin{flushleft}
+12) \(a^{\frac{-1}{2}} \div a \) 
+\karos{15}{4} \\~\\
+13) \( x^{\frac{2}{3}} \div (2x)^{\frac{2}{3}} \) 
+\karos{15}{4} \\~\\
+14) \(\sqrt{f} \div {^4}\sqrt{f}\) 
+\karos{15}{4}
+\end{flushleft}
+% Die Anweisung beendet lediglich die aktuelle Seite.
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Übungen aus: [KG, 270 /15.4] Potenzen mit rationalen Zahlen als Exponenten}
+\(1, 2, 3, 4 \) \\
+\karos{15}{15}
+% Die Anweisung beendet lediglich die aktuelle Seite.
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Gleichungen mit Potenzen}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Definition}
+\begin{flushleft}
+Bei Potenzgleichungen ist die Basis einer Potenz die gesuchte Grösse.
+\end{flushleft}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Übungen}
+\begin{flushleft}
+Bestimmen Sie x.
+\end{flushleft}
+1) \(x^{\frac{1}{4}} = \sqrt{2}\) \\
+\karos{15}{7} \\~\\
+2) \((x-4)^{-3} = 8 \) \\
+\karos{15}{7}
+% Die Anweisung beendet lediglich die aktuelle Seite.
+\newpage
+%Γ Να μπόυνε ,,xxx"
+\subsection{Übungen aus: [Kusch Bd1, 229/12.8] Zahlengleichungen mit Potenzen}
+\karos{15}{15}
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Γ Τα \\ και τα διπλά \\~\\ να έχουν πάντα ένα κενό.
+%Γ Να ελεγχθεί όλο το PDF ορθογραφικά.
+%Γ Τα karos να βρίσκονται μέσα στις παραγράφους ή εξωτερικά;
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
