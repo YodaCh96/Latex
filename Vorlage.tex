@@ -6,9 +6,8 @@
 %   - [twoside] : zweiseitig bedruckt
 %   - [fleqn]   : linksbündige Ausrichtung der Gleichungen
 \documentclass[11pt, a4paper, twoside, fleqn]{article}
-\usepackage{ucs} %Γ Γιατί χρειζόμαστε αυτό το πακέτο;
 % Das Paket inputenc erlaubt die direkte Eingabe von Sonderzeichen wie zum Beispiel deutschen Umlauten, um deren Trennung zu ermöglichen wird zudem das Paket fontenc mit eingebunden.
-\usepackage[utf8x]{inputenc}
+\usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 % Hierbei wird ngerman als Option des Paketes babel gesetzt.
 \usepackage[ngerman]{babel}
@@ -16,7 +15,6 @@
 \usepackage{fullpage}
 \usepackage{amsmath, amssymb}
 \usepackage{multicol}
-%Γ Να προσθεθούν οι εντολές όπου ολο το LaTeX δεν έχει Indents και οι αποστάσεις μεταξύ των παραγράφων να είναι σταθερές όπως επίσης και οι αποστάσεις μεταξύ των σειρών.
 % Mit xcolor können Seiten, die Schrift, Rahmen und Felder in den verfügbaren Farben gesetzt werden.
 \usepackage{xcolor}
 \usepackage{tikz}
@@ -24,6 +22,8 @@
 \usepackage{enumitem}
 \setlength{\mathindent}{0cm}
 \setlength\parindent{0pt}
+\setlength{\parskip}{0em}
+\renewcommand{\baselinestretch}{1.5}
 \title{xxx} 
 \author{Ioannis Christodoulakis}
 \date{\today}
