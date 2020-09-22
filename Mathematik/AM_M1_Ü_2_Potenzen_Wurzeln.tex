@@ -1,0 +1,68 @@
+% Dokumentenklasse: 
+%   - {article} : für Kurzberichte.
+% Dokumentenklasseoptionen:
+%   - [11pt]    : Schriftgröße
+%   - [a4paper] : Seitenformat DIN A4
+%   - [twoside] : zweiseitig bedruckt
+%   - [fleqn]   : linksbündige Ausrichtung der Gleichungen
+\documentclass[11pt, a4paper, twoside, fleqn]{article}
+% Das Paket inputenc erlaubt die direkte Eingabe von Sonderzeichen wie zum Beispiel deutschen Umlauten, um deren Trennung zu ermöglichen wird zudem das Paket fontenc mit eingebunden.
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+% Hierbei wird ngerman als Option des Paketes babel gesetzt.
+\usepackage[ngerman]{babel}
+% Mit fullpage kann die Texthöhe und -breite sowie die Ränder festlegen, dass die Seite fast voll ist.
+\usepackage{fullpage}
+\usepackage{amsmath, amssymb}
+\usepackage{multicol}
+% With xcolor, pages, the font, frames and fields can be set in the available colors.
+\usepackage{xcolor}
+\usepackage{tikz}
+% Customizable Enumerates/Itemizes
+\usepackage{enumitem}
+\setlength{\mathindent}{0cm}
+\setlength\parindent{0pt}
+\setlength{\parskip}{0em}
+\renewcommand{\baselinestretch}{1.5}
+\title{Potenzen und Wurzeln} 
+\author{Ioannis Christodoulakis}
+\date{\today}
+\begin{document}
+% The command \selectlanguage{ngerman} changes the default language of the document.
+\selectlanguage{ngerman}
+\maketitle
+% The statement ends the current page.
+\newpage
+% This command causes LaTeX to create a table of contents.
+%\tableofcontents
+% The statement ends the current page.
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Übung Potenzen und Wurzeln}
+
+\begin{enumerate}[itemsep=3ex]
+\item $ (-1)^{2n -1} = \textcolor{red}{-1} $
+\item $ -10^{2} = \textcolor{red}{-100} $
+% Minus sign must be placed before the fraction.
+\item $ (-10)^{-3} = \textcolor{red}{\dfrac{1}{(-10)^{3}} = -\dfrac{1}{1000}} $
+\item $((-2)^{3})^{2} = \textcolor{red}{64} $
+\item $ (-1)^{-2n} = \textcolor{red}{\dfrac{1}{(-1)^{2n}} = 1} $
+% \left and \right are Delimiter sizes
+\item $ -\left(\dfrac{3}{2}\right)^{-4} = \textcolor{red}{-\left(\dfrac{2}{3}\right)^{-4} = -\dfrac{16}{81}} $
+\item $ x^7 \cdot x^{-3} \cdot x^{-2} = \textcolor{red}{x^{7-3-2} = x^{2}} $
+\item $ \dfrac{y^{3} \cdot x^{-2}}{(x \cdot y)^2} =  \textcolor{red}{\dfrac{y^3}{x^{2}\cdot y^{2} \cdot x^{2}} = \dfrac{y}{x^4}} $
+\item $ \left(\dfrac{z^{-5}}{z^{-2}}\right)^{-2} = \textcolor{red}{\left(\dfrac{z^{2}}{z^{5}}\right)^{-2} = \left(\dfrac{z^{5}}{z^{2}} \right)^{2} = (z^3)^2 = z^6} $
+\item $ \left(\dfrac{3}{5}\right)^4 \div \left(\dfrac{6}{25}\right)^{4} = \textcolor{red}{\left(\dfrac{3}{5} \cdot \dfrac{25}{6} \right)^{4} = \left (\dfrac{5}{2}\right)^{4} = \dfrac{625}{16}} $ 
+\item $ a^{n-2} \cdot a^{1-n} =\textcolor{red}{a^{n-2+1-n} = \dfrac{1}{a}} $
+\item $ (a-b)^{3} \cdot (b-a)^{-3} = \textcolor{red}{\dfrac{(a-b)^3}{(-1 \cdot(a-b))^{3}}= -1} $
+\item $ b^{2x-1} \cdot b^{2x+1} \div b^{3x-1} = \textcolor{red}{b^{2x-1+2x+1-3x+1} = b^{x+1} = b \cdot b^{x}} $
+\item $ \left(\dfrac{a^{2}}{b^{3}} \right)^{-2} \cdot \dfrac{5a^{3}}{2b^{2}} \cdot 2ab^{-4} = \textcolor{red}{\left(\dfrac{b^{3}}{a^2}\right)^{2} \cdot \dfrac{5a^3}{2b^2} \cdot \dfrac{2a}{b^{4}} = 5} $
+\item $ \dfrac{4n^{-2} m^{4}}{5c^{2} x^{-3}} \div \dfrac{8m^{3}c^{-1}x}{15n^{-2}c} =\textcolor{red}{\dfrac{4m^{4}x^{3}}{5c^{2} \cdot n^{2}} \cdot \dfrac{15c \cdot c }{n^{2} \cdot 8m^{3}x} = \dfrac{3mx^{2}}{2n^{4}}} $
+\item $ \dfrac{u^{2} - t^{2}}{2u^{2} + 4ut + 2t^{2}} = \textcolor{red}{\dfrac{(u-t) \cdot (u+t)}{2 \cdot (u+t) \cdot (u+t)} = \dfrac{u-t}{2 \cdot (u+t)}} $
+\item $ (r+r^{-1})^2 - (r-r^{-1})^2 = \textcolor{red}{r^{2} + 2 + \dfrac{1}{r^{2}} - (r^{2} -2 + \dfrac{1}{r^{2}}) = 4} $
+\item $ (2-p)^{3} = \textcolor{red}{8-12p+6p^{2}-p^3} $
+\item $ \dfrac{a^{15} - a^{10}} {a^{5}} = \textcolor{red}{\dfrac{a^{5} \cdot (a^{10} - a^{5})}{a^{5}} = a^{10} - a^{5}} $
+\item $ \dfrac{\dfrac{a^{2} - b^{2}}{ab + b^{2}}}{\dfrac{(a-b)^{2}}{ab^{2}}} = \textcolor{red}{\dfrac{(a+b) \cdot (a-b)}{b \cdot (a+b)} \cdot \dfrac{ab \cdot b}{(a-b) \cdot (a-b)} = \dfrac{ab}{a-b}}$ 
+\end{enumerate}
+\end{document}
