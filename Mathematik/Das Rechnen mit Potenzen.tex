@@ -6,8 +6,9 @@
 %   - [twoside] : zweiseitig bedruckt
 %   - [fleqn]   : linksbündige Ausrichtung der Gleichungen
 \documentclass[11pt, a4paper, twoside, fleqn]{article}
+\usepackage{ucs} %Γ Γιατί χρειζόμαστε αυτό το πακέτο;
 % Das Paket inputenc erlaubt die direkte Eingabe von Sonderzeichen wie zum Beispiel deutschen Umlauten, um deren Trennung zu ermöglichen wird zudem das Paket fontenc mit eingebunden.
-\usepackage[utf8]{inputenc}
+\usepackage[utf8x]{inputenc}
 \usepackage[T1]{fontenc}
 % Hierbei wird ngerman als Option des Paketes babel gesetzt.
 \usepackage[ngerman]{babel}
